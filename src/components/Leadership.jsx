@@ -1,8 +1,8 @@
 import React from 'react'
 
 const roles = [
-  { name: 'Girls Code Club Member', dates: '2024 -- Present' },
-  { name: 'ACM Member', dates: '2022 -- 2023' },
+  { name: 'Girls Code Club Member', dates: '2024–Present' },
+  { name: 'ACM Member', dates: '2022–2023' },
 ]
 
 const Leadership = () => {

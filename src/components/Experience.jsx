@@ -4,18 +4,18 @@ const jobs = [
   {
     role: 'Software Engineering Intern',
     place: 'Ummah Professionals, Remote',
-    dates: 'Jun 2026 -- Present',
+    dates: 'Jun 2026–Present',
     bullets: [
-      "Delivered the organization's first mentorship platform, serving approximately 1,000 users and replacing a fully manual coordination workflow, by building React, Node, and MongoDB features across both frontend and backend as one of 4 developers",
-      'Eliminated hand-pairing of mentors and mentees, which previously required staff to read every participant resume individually, by co-designing a weighted matching algorithm scoring compatibility across 5 dimensions (shared interest tags, major, university, state, availability) with per-category score caps preventing any single signal from dominating a pairing',
-      'Established the platform\'s first structured access model, scoping dashboard views and API permissions across 3 user roles (mentor, mentee, admin), by implementing Google OAuth 2.0 with JWT sessions and role-based access control',
-      'Removed manual back-and-forth from every session booking by building an interactive availability calendar in JavaScript backed by MongoDB and integrating the Google Calendar and Meet APIs for automated link generation and reminder notifications',
+      "Building the organization's first mentorship platform, set to replace a fully manual coordination process for a community of approximately 1,000 members, by developing React, Node, and MongoDB features across frontend and backend as one of 4 developers",
+      'Eliminated hand-pairing of mentors and mentees, previously requiring staff to read every participant resume, by co-designing a weighted matching algorithm scoring compatibility across 5 dimensions (interest tags, major, university, state, availability), with per-category caps preventing any single signal from dominating',
+      "Established the platform's first structured access model, scoping dashboard views and API permissions across 3 roles (mentor, mentee, admin), by implementing Google OAuth 2.0, JWT sessions, and role-based access control",
+      'Removed manual back-and-forth from session booking by building an interactive availability calendar in JavaScript backed by MongoDB, and integrating the Google Calendar and Meet APIs for automated link generation and reminders',
     ],
   },
   {
     role: 'College Assistant, Financial Aid Office',
     place: 'Queens College, CUNY, Flushing, NY',
-    dates: 'Jan 2025 -- Present',
+    dates: 'Jan 2025–Present',
     bullets: [
       'Delivered report-ready datasets to office staff each cycle by writing SQL queries against CUNYfirst (Oracle-backed student information system) to deduplicate records and join and filter across tables',
       'Replaced manual data compilation by connecting query output directly to Excel, giving staff clean, ready-to-use data without hand assembly',
@@ -25,7 +25,7 @@ const jobs = [
   {
     role: 'Product Development Intern',
     place: 'Key Path (early-stage startup), Remote',
-    dates: 'Mar 2026 -- Jun 2026',
+    dates: 'Mar 2026–Jun 2026',
     bullets: [
       'Enabled a 5-engineer team (2 frontend, 3 backend) to work from a prioritized backlog by scoping and writing 65+ development tickets in Trello, translating stakeholder requirements into technical feature specs with the product lead',
       'Surfaced blockers and coordinated frontend/backend handoffs by tracking delivery in daily stand-ups across the full stack',
