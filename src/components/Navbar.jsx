@@ -17,12 +17,12 @@ const Navbar = () => {
     <nav className="fixed top-6 inset-x-6 z-50 items-center flex justify-between">
       <button
         onClick={toggleTheme}
-        className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-900/90 backdrop-blur-md border border-gray-800 text-gray-100 hover:bg-gray-900 transition"
+        className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-900/40 backdrop-blur-md border border-gray-800 text-gray-100 hover:bg-gray-900 transition"
       >
         <i className="ri-moon-line text-lg"></i>
       </button>
 
-      <ul className="flex items-center gap-1 bg-gray-900/90 backdrop-blur-md border border-gray-800 rounded-full px-2 py-2">
+      <ul className="flex items-center gap-1 bg-gray-900/40 backdrop-blur-md border border-gray-800 rounded-full px-2 py-2">
         {links.map((link) => (
           <li key={link.label}>
             <a
@@ -37,7 +37,7 @@ const Navbar = () => {
 
       <a
         href="#contact"
-        className="hidden md:inline-flex items-center gap-2 bg-gray-900/90 backdrop-blur-md border border-gray-800 text-gray-100 rounded-full px-5 py-3 text-sm font-medium hover:bg-gray-900 transition"
+        className="hidden md:inline-flex items-center gap-2 bg-gray-900/40 backdrop-blur-md border border-gray-800 text-gray-100 rounded-full px-5 py-3 text-sm font-medium hover:bg-gray-900 transition"
       >
         <i className="ri-mail-line"></i> Contact
       </a>
