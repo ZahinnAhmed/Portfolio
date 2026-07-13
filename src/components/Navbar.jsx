@@ -14,35 +14,33 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="fixed top-0 inset-x-0 z-50 bg-gray-900/95 backdrop-blur-lg border-b border-gray-800 text-gray-100">
-      <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-        <button
-          onClick={toggleTheme}
-          className="w-10 h-10 flex items-center justify-center rounded-full text-foreground hover:bg-foreground/10 transition"
-        >
-          <i className="ri-moon-line text-lg"></i>
-        </button>
+    <nav className="fixed top-6 inset-x-6 z-50 items-center flex justify-between">
+      <button
+        onClick={toggleTheme}
+        className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-900/90 backdrop-blur-md border border-gray-800 text-gray-100 hover:bg-gray-900 transition"
+      >
+        <i className="ri-moon-line text-lg"></i>
+      </button>
 
-        <ul className="flex items-center gap-1">
-          {links.map((link) => (
-            <li key={link.label}>
-              <a
-                href={link.href}
-                className="block px-4 py-2 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-foreground/10 transition"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+      <ul className="flex items-center gap-1 bg-gray-900/90 backdrop-blur-md border border-gray-800 rounded-full px-2 py-2">
+        {links.map((link) => (
+          <li key={link.label}>
+            <a
+              href={link.href}
+              className="block px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 transition"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
 
-        <a
-          href="#contact"
-          className="hidden md:inline-flex items-center gap-2 border border-border text-foreground rounded-full px-5 py-2 text-sm font-medium hover:bg-foreground/10 transition"
-        >
-          <i className="ri-mail-line"></i> Contact
-        </a>
-      </div>
+      <a
+        href="#contact"
+        className="hidden md:inline-flex items-center gap-2 bg-gray-900/90 backdrop-blur-md border border-gray-800 text-gray-100 rounded-full px-5 py-3 text-sm font-medium hover:bg-gray-900 transition"
+      >
+        <i className="ri-mail-line"></i> Contact
+      </a>
     </nav>
   )
 }
