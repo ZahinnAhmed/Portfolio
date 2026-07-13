@@ -14,7 +14,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="fixed top-0 inset-x-0 z-50 bg-background/95 backdrop-blur-lg border-b border-border/60">
+    <nav className="fixed top-0 inset-x-0 z-50 bg-gray-900/95 backdrop-blur-lg border-b border-gray-800 text-gray-100">
       <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
         <button
           onClick={toggleTheme}
