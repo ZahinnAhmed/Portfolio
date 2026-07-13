@@ -13,8 +13,9 @@ const App = () => {
     <div className="relative bg-background dark:bg-linear-to-b dark:from-neutral-900 dark:via-black dark:to-black text-foreground min-h-screen">
       <AuroraOverlay />
 
-      <div className="relative z-10">
-        <Navbar />
+      <Navbar />
+
+      <div className="relative z-10 pl-56">
         <Hero />
         <About />
         <Experience />
