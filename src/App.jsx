@@ -3,26 +3,23 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
 import Experience from './components/Experience'
-import Skills from './components/Skills'
 import Projects from './components/Projects'
-import Leadership from './components/Leadership'
-import AuroraOverlay from './components/AuroraOverlay'
+import Skills from './components/Skills'
+import Contact from './components/Contact'
 
 const App = () => {
   return (
-    <div className="relative bg-background dark:bg-linear-to-b dark:from-neutral-900 dark:via-black dark:to-black text-foreground min-h-screen">
-      <AuroraOverlay />
-
+    <div className="relative min-h-screen bg-background text-foreground overflow-x-hidden">
+      <div aria-hidden className="pointer-events-none fixed inset-0 bg-grid"></div>
       <Navbar />
-
-      <div className="relative z-10 pl-56">
+      <main>
         <Hero />
         <About />
         <Experience />
-        <Skills />
         <Projects />
-        <Leadership />
-      </div>
+        <Skills />
+        <Contact />
+      </main>
     </div>
   )
 }

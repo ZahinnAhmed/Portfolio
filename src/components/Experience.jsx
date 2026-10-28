@@ -1,72 +1,114 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Section, Reveal, Card, IconTile, Tag, Bullets } from './ui/section'
 
 const jobs = [
   {
     role: 'Software Engineering Intern',
-    place: 'Ummah Professionals, Remote',
-    dates: 'Jun 2026–Present',
+    place: 'Ummah Professionals',
+    dates: 'Jun 2026 – Present · Remote',
+    icon: 'ri-team-line',
+    summary:
+      "Building the organization's first mentorship platform for ~1,000 members as one of 4 developers, across React, Node.js, and MongoDB.",
+    highlights: ['5-factor matching algorithm', 'Gemini chatbot backend', '3-role RBAC', '20+ user interviews'],
     bullets: [
-      "Building the organization's first mentorship platform, set to replace a fully manual coordination process for a community of approximately 1,000 members, by developing React, Node, and MongoDB features across frontend and backend as one of 4 developers",
-      'Eliminated hand-pairing of mentors and mentees, previously requiring staff to read every participant resume, by co-designing a weighted matching algorithm scoring compatibility across 5 dimensions (interest tags, major, university, state, availability), with per-category caps preventing any single signal from dominating',
-      "Established the platform's first structured access model, scoping dashboard views and API permissions across 3 roles (mentor, mentee, admin), by implementing Google OAuth 2.0, JWT sessions, and role-based access control",
-      'Removed manual back-and-forth from session booking by building an interactive availability calendar in JavaScript backed by MongoDB, and integrating the Google Calendar and Meet APIs for automated link generation and reminders',
-    ],
-  },
-  {
-    role: 'College Assistant, Financial Aid Office',
-    place: 'Queens College, CUNY, Flushing, NY',
-    dates: 'Jan 2025–Present',
-    bullets: [
-      'Delivered report-ready datasets to office staff each cycle by writing SQL queries against CUNYfirst (Oracle-backed student information system) to deduplicate records and join and filter across tables',
-      'Replaced manual data compilation by connecting query output directly to Excel, giving staff clean, ready-to-use data without hand assembly',
-      'Caught input errors before they reached downstream reporting by validating 300+ records per semester',
+      "Replacing a fully manual coordination process for a community of **~1,000 members** by developing frontend and backend features as **one of 4 developers**",
+      'Automated hand-pairing of mentors and mentees by co-designing a **weighted matching algorithm** scoring compatibility across **5 dimensions** (interest tags, major, university, state, availability), with per-category caps so no single signal dominates',
+      'Built the backend for **Ask Ummah**, an LLM-powered site chatbot, integrating the **Google Gemini API** to retrieve resources and return 1–2 line summaries',
+      'Integrated **Google OAuth 2.0 + JWT with role-based access across 3 roles**, plus the Google Calendar and Meet APIs for automated session links and reminders',
+      'Took on an informal product lead role in week one: ran stand-ups and conducted **20+ user interviews**',
     ],
   },
   {
     role: 'Product Development Intern',
-    place: 'Key Path (early-stage startup), Remote',
-    dates: 'Mar 2026–Jun 2026',
+    place: 'Key Path · early-stage fintech startup',
+    dates: 'Mar 2026 – Jun 2026 · Remote',
+    icon: 'ri-line-chart-line',
+    summary:
+      'Coordinated a pre-launch AI insights feature and kept a 5-engineer team working from a prioritized backlog.',
+    highlights: ['Fintech', '65+ tickets scoped', 'AI insights feature'],
     bullets: [
-      'Enabled a 5-engineer team (2 frontend, 3 backend) to work from a prioritized backlog by scoping and writing 65+ development tickets in Trello, translating stakeholder requirements into technical feature specs with the product lead',
-      'Surfaced blockers and coordinated frontend/backend handoffs by tracking delivery in daily stand-ups across the full stack',
+      'Coordinated the build of a pre-launch **AI insights feature**, translating stakeholder requirements into technical specs and flagging coverage gaps before development',
+      'Enabled a **5-engineer team** (2 frontend, 3 backend) to work from a prioritized backlog by scoping **65+ development tickets** in Trello with the product lead',
+      'Surfaced blockers and coordinated frontend/backend handoffs by tracking delivery in daily stand-ups',
     ],
+  },
+  {
+    role: 'College Assistant, Financial Aid',
+    place: 'Queens College, CUNY',
+    dates: 'Jan 2025 – Present · Flushing, NY',
+    icon: 'ri-database-2-line',
+    summary:
+      'Write SQL against an Oracle-backed student information system to deliver clean, report-ready financial aid data.',
+    highlights: ['SQL / Oracle', '300+ records validated per semester'],
+    bullets: [
+      'Delivered report-ready datasets each cycle by writing **SQL queries against CUNYfirst** (Oracle-backed) to deduplicate records and join and filter across tables',
+      'Automated manual data compilation by connecting query output directly to Excel for staff use',
+      'Caught input errors before they reached downstream reporting by **validating 300+ records per semester**',
+    ],
+  },
+  {
+    role: 'Full Stack Web Development Fellow',
+    place: 'CUNY Tech Prep',
+    dates: 'Fall 2026 – Spring 2027 · New York',
+    icon: 'ri-graduation-cap-line',
+    summary:
+      'Selected for a competitive, year-long industry training program in full-stack web development.',
+    highlights: ['Competitive admission', 'Year-long program'],
+    bullets: [],
   },
 ]
 
+const JobCard = ({ job, index }) => {
+  const [open, setOpen] = useState(false)
+  return (
+    <Card className="h-full" glow={index % 2 ? 'right-1/4' : 'left-1/3'}>
+      <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
+        <IconTile icon={job.icon} />
+        <div className="min-w-0 flex-1">
+          <h3 className="text-xl sm:text-2xl font-bold text-foreground">{job.role}</h3>
+          <p className="mt-1 text-sm font-medium text-brand">{job.place}</p>
+          <p className="mt-0.5 text-xs text-subtle">{job.dates}</p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{job.summary}</p>
+          <div className="mt-4 flex flex-wrap gap-1.5">
+            {job.highlights.map((h) => (
+              <Tag key={h}>{h}</Tag>
+            ))}
+          </div>
+
+          {job.bullets.length > 0 && (
+            <>
+              {open && (
+                <div className="mt-5 border-t border-white/[0.08] pt-5">
+                  <Bullets items={job.bullets} />
+                </div>
+              )}
+              <button
+                onClick={() => setOpen((o) => !o)}
+                aria-expanded={open}
+                className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-brand transition"
+              >
+                {open ? 'Show less' : 'Show details'}
+                <i className={open ? 'ri-arrow-up-s-line' : 'ri-arrow-down-s-line'}></i>
+              </button>
+            </>
+          )}
+        </div>
+      </div>
+    </Card>
+  )
+}
+
 const Experience = () => {
   return (
-    <section
-      id="experience"
-      className="px-6 py-20 max-w-3xl mx-auto scroll-mt-24 border-t border-border/30"
-    >
-      <p className="text-xs font-semibold uppercase tracking-widest text-blue-300 mb-2">
-        Work History
-      </p>
-      <h2 className="text-3xl font-bold text-foreground mb-10 tracking-tight">Experience</h2>
-
-      <div className="flex flex-col gap-6">
-        {jobs.map((job) => (
-          <div
-            key={job.role}
-            className="border border-border/60 rounded-2xl p-6 bg-card/60 backdrop-blur-md hover:border-border transition-colors"
-          >
-            <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <h3 className="text-xl font-semibold text-card-foreground">
-                {job.role}
-              </h3>
-              <span className="text-sm text-muted-foreground">{job.dates}</span>
-            </div>
-            <p className="text-muted-foreground italic mt-1">{job.place}</p>
-
-            <ul className="mt-4 list-disc list-outside pl-5 space-y-2 text-sm text-card-foreground marker:text-blue-400">
-              {job.bullets.map((bullet, i) => (
-                <li key={i}>{bullet}</li>
-              ))}
-            </ul>
-          </div>
+    <Section id="experience" pre="My" highlight="work experience">
+      <div className="grid gap-6 lg:grid-cols-2 items-start">
+        {jobs.map((job, i) => (
+          <Reveal key={job.role} delay={(i % 2) * 0.08} className="h-full">
+            <JobCard job={job} index={i} />
+          </Reveal>
         ))}
       </div>
-    </section>
+    </Section>
   )
 }
 
